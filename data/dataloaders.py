@@ -10,7 +10,7 @@ import torchvision
 
 from scipy.spatial.distance import cdist
 import torchvision.transforms as transforms
-_BASE_PATH = os.path.dirname(os.path.abspath(__file__))  # CLASP/data
+_BASE_PATH = os.path.dirname(os.path.abspath(__file__))  # CAPT/data
 
 
 class BaselineDataset(data.Dataset):

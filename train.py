@@ -16,12 +16,12 @@ import random
 import numpy as np
 import torch
 
-from clasp.model import CLASPNet
-from clasp.engine import build_data, train_one_epoch, run_eval
+from capt.model import CAPTNet
+from capt.engine import build_data, train_one_epoch, run_eval
 
 
 def get_args():
-    p = argparse.ArgumentParser("CLASP")
+    p = argparse.ArgumentParser("CAPT")
     # data
     p.add_argument("-dataset", default="DomainNet", choices=["DomainNet", "Sketchy", "TUBerlin"])
     p.add_argument("-dataset_path", required=True, help="root holding <dataset>/... images")
@@ -75,16 +75,16 @@ def get_args():
 def main():
     args = get_args()
     if not args.inject_layers:
-        args.inject_layers = ",".join(str(i) for i in range(12))   # deep (default CLASP)
+        args.inject_layers = ",".join(str(i) for i in range(12))   # deep (default CAPT)
     random.seed(args.seed); np.random.seed(args.seed)
     torch.manual_seed(args.seed); torch.cuda.manual_seed_all(args.seed)
     device = "cuda" if torch.cuda.is_available() else "cpu"
 
     data = build_data(args)
-    model = CLASPNet(args, data["classnames"], data["domainnames"], device).to(device)
+    model = CAPTNet(args, data["classnames"], data["domainnames"], device).to(device)
     params = [p for p in model.parameters() if p.requires_grad]
     optimizer = torch.optim.Adam(params, lr=args.lr, weight_decay=args.weight_decay)  # constant LR
-    print(f"[CLASP] trainable params: {sum(p.numel() for p in params):,}", flush=True)
+    print(f"[CAPT] trainable params: {sum(p.numel() for p in params):,}", flush=True)
 
     os.makedirs(args.save_dir, exist_ok=True)
     for epoch in range(args.epochs):
@@ -95,7 +95,7 @@ def main():
         te_data, sel = run_eval(model, args, data, device)
         print(f"ep {epoch + 1} selection mAP = {sel:.4f}", flush=True)
         torch.save({"model": model.state_dict(), "epoch": epoch + 1, "args": vars(args)},
-                   os.path.join(args.save_dir, f"clasp_{args.holdout_domain}_ep{epoch+1}.pt"))
+                   os.path.join(args.save_dir, f"capt_{args.holdout_domain}_ep{epoch+1}.pt"))
 
 
 if __name__ == "__main__":

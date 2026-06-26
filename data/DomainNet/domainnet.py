@@ -4,7 +4,7 @@ import glob
 
 
 def create_trvalte_splits(args):
-    _BASE_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # CLASP/data
+    _BASE_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # CAPT/data
     tr_classes = np.load(os.path.join(_BASE_PATH, 'DomainNet', 'train_classes.npy')).tolist()
     va_classes = np.load(os.path.join(_BASE_PATH, 'DomainNet', 'val_classes.npy')).tolist()
     te_classes = np.load(os.path.join(_BASE_PATH, 'DomainNet', 'test_classes.npy')).tolist()

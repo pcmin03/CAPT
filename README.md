@@ -99,7 +99,7 @@ Single seed (`-seed 0`), one 80GB GPU. Small run-to-run variation (~1e-3) is exp
 
 ## Repository layout
 ```
-clasp/   model.py (DSIP) · losses.py (PACE: CDCM/CDPA) · engine.py (train/eval) · mAP.py · metrics.py
+capt/    model.py (DSIP) · losses.py (PACE: CDCM/CDPA) · engine.py (train/eval) · mAP.py · metrics.py
 data/    dataset loaders + shipped class-split / protocol files (no images)
 train.py single entry point (train + per-epoch evaluation)
 ```

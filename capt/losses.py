@@ -13,7 +13,7 @@ The CAPT recipe (DSIP-deep / XDSIP backbone) trains with two losses:
             so ROUTE is parameter-free (no lambda / margin) and absorbs CDPA.
 
 (Standalone CDCM/CDPA losses and the fixed-ratio router live only in the ablation
-backup CaDiP/capt_dev/clasp_ablation_backup_20260616/ — used to regenerate the
+backup CaDiP/capt_dev/capt_ablation_backup_20260616/ — used to regenerate the
 component ablation table; not needed by the clean main recipe.)
 """
 from __future__ import annotations

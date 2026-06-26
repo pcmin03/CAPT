@@ -1,7 +1,7 @@
 """CAPT training / evaluation engine on DomainNet (ECCV / Fang'24 split).
 
 Reuses the standard UCDR data pipeline (shared with ProS/DePro/UCDR-Adapter)
-under ``data/`` and the retrieval metrics under ``clasp/metrics.py``. The
+under ``data/`` and the retrieval metrics under ``capt/metrics.py``. The
 training step is the clean CAPT recipe:
     L = ITC + lambda_route * PACE   (instance-prototype routing; parameter-free).
 """
@@ -18,9 +18,9 @@ from data.Sketchy import sketchy_extended
 from data.TUBerlin import tuberlin_extended
 from data.dataloaders import CuMixloader, BaselineDataset
 from data.sampler import BalancedSampler
-from clasp.metrics import compute_retrieval_metrics
-from clasp.utils import numeric_classes, create_dict_texts
-from clasp.losses import itc_loss, route_loss
+from capt.metrics import compute_retrieval_metrics
+from capt.utils import numeric_classes, create_dict_texts
+from capt.losses import itc_loss, route_loss
 
 _CLIP_MEAN = (0.48145466, 0.4578275, 0.40821073)
 _CLIP_STD = (0.26862954, 0.26130258, 0.27577711)

@@ -10,7 +10,7 @@ from joblib import Parallel, delayed
 from scipy.spatial.distance import cdist
 from sklearn.metrics import average_precision_score
 
-from clasp.mAP import mean_average_precision
+from capt.mAP import mean_average_precision
 
 
 

@@ -1,4 +1,4 @@
-"""Small helpers for CLASP (vendored minimal subset, no external deps)."""
+"""Small helpers for CAPT (vendored minimal subset, no external deps)."""
 import numpy as np
 
 
