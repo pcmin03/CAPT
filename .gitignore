@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# Environments
+.venv/
+venv/
+env/
+
+# Training artifacts / checkpoints
+*.pth
+*.pt
+*.ckpt
+runs/
+logs/
+wandb/
+outputs/
+
+# OS
+.DS_Store
